@@ -1,0 +1,39 @@
+/* .init {
+    width: 100px;
+    height: 100px;
+    background-color: #FFB300;
+} */
+body {
+    background-color: #FFB300;
+}
+table tr, table td {
+    width: 100px;
+    height: 100px;
+}
+tr:nth-child(odd) td:nth-child(odd) {
+    background-color: white;
+}
+tr:nth-child(odd) td:nth-child(even) {
+    background-color: black;
+}
+tr:nth-child(even) td:nth-child(odd) {
+    background-color: black;
+}
+tr:nth-child(even) td:nth-child(even) {
+    background-color: white;
+}
+tr td:nth-child(1) {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    background-color: #FFB300 !important;
+}
+.n0 td {
+    background-color: #FFB300 !important;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    font-family: sans-serif;
+}

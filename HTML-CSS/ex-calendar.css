@@ -1,0 +1,42 @@
+td, th {
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    font-size: medium;
+}
+.dow {
+    background-color: #FFB300;
+    color: white;
+}
+.dow th:first-child{
+    background-color: #FF2600;
+
+}
+.dow th:last-child{
+    background-color: blue;
+}
+td:first-child{
+    color: #FF2600;
+
+}
+td:last-child{
+    color: blue;
+}
+
+.tbodyStyle > tr:nth-child(n + 2) > td{
+    border: 1px solid black;
+}
+
+sub {
+    color: black;
+}
+table:nth-child(2) {
+    border-collapse: collapse;
+}
+caption {
+    font-size: x-large;
+    padding: 10px 0;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: blue;
+}

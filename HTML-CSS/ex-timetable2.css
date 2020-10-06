@@ -1,0 +1,30 @@
+.subtitle2 {
+    background-color: #FFB300;
+}
+
+#caption {
+    text-align: center;
+    color: #0433FF;
+    text-transform: uppercase;
+}
+
+.subtable {
+    margin: 0 0 0 0;
+    width: 504px;
+    color: #3E62FF;
+}
+.right-agli {
+    text-align: right;
+}
+.main-body {
+    border: black 1px solid;
+}
+table  {
+    border-collapse: collapse;
+}
+.main tr, .main td,.main th {
+    border: 1px solid black;
+}
+.yellow {
+    background-color: #FEFB00;
+}
