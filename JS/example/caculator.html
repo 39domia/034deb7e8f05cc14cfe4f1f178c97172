@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+</head>
+
+<body>
+    <h2>Caculator</h2>
+    <table>
+        <tr>
+            <td colspan="2">
+                <input type="text" name="first-input" id="i-first">
+            </td>
+            <td colspan="2">
+                <input type="text" name="second-input" id="i-second">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="add" type="button" value="Add">
+            </td>
+            <td>
+                <input id="sub" type="button" value="Sub">
+            </td>
+            <td>
+                <input id="mul" type="button" value="Mul">
+            </td>
+            <td>
+                <input id="div" type="button" value="Div">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div id="result"></div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        let firstN = document.getElementById("i-first");
+        let secondN = document.getElementById("i-second");
+        let result = document.getElementById("result");
+
+        let addBtn = document.getElementById("add");
+        let subBtn = document.getElementById("sub");
+        let mulBtn = document.getElementById("mul");
+        let divBtn = document.getElementById("div");
+
+        addBtn.addEventListener("click", addTwoNumber);
+        function addTwoNumber() {
+            let firstNumber = parseInt(firstN.value);
+            let secondNumber = parseInt(secondN.value);
+            result.innerHTML = `Result: ${firstNumber + secondNumber}`;
+        }
+
+        subBtn.addEventListener("click", subTwoNumber);
+        function subTwoNumber() {
+            let firstNumber = parseInt(firstN.value);
+            let secondNumber = parseInt(secondN.value);
+            result.innerHTML = `Result: ${firstNumber - secondNumber}`;
+        }
+
+        mulBtn.addEventListener("click", mulTwoNumber);
+        function mulTwoNumber() {
+            let firstNumber = parseInt(firstN.value);
+            let secondNumber = parseInt(secondN.value);
+            result.innerHTML = `Result: ${firstNumber * secondNumber}`;
+        }
+
+        divBtn.addEventListener("click", divTwoNumber);
+        function divTwoNumber() {
+            let firstNumber = parseInt(firstN.value);
+            let secondNumber = parseInt(secondN.value);
+            result.innerHTML = `Result: ${firstNumber / secondNumber}`;
+        }
+    </script>
+</body>
+
+</html>
