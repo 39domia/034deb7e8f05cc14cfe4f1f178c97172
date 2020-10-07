@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency conversion</title>
+    <style>
+        td {
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form action=""> -->
+    <table>
+        <tr>
+            <td>Amount</td>
+            <td>From Currency</td>
+            <td>To Currency</td>
+
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="amount" id="i-amount">
+            </td>
+            <td>
+                <select name="from-list" id="s-from-list">
+                    <option class="vnd" value="vnd">Việt Nam</option>
+                    <option class="usd" value="usd">Dollar Mỹ</option>
+                    <option class="yen" value="yen">Yên Nhật</option>
+                </select>
+            </td>
+            <td>
+                <select name="to-list" id="s-to-list">
+                    <option class="vnd" value="vnd">Việt Nam</option>
+                    <option class="usd" value="usd" selected>Dollar Mỹ</option>
+                    <option class="yen" value="yen">Yên Nhật</option>
+                </select>
+            </td>
+            <td><input type="button" id="btn-convert" value="Convert"></td>
+        </tr>
+        <tr>
+            <td>
+                <div id="result"></div>
+            </td>
+        </tr>
+    </table>
+    <!-- </form> -->
+
+    <script>
+        let iMount = document.getElementById("i-amount");
+
+        let sFromList = document.getElementById("s-from-list");
+        let sToList = document.getElementById("s-to-list");
+        let btnConvert = document.getElementById("btn-convert");
+        let result = document.getElementById("result");
+
+        let usd = document.getElementsByClassName("usd");
+        let vnd = document.getElementsByClassName("vnd");
+        let yen = document.getElementsByClassName("yen");
+
+
+        let iMountInt = parseInt(iMount.value);
+
+        btnConvert.addEventListener("click", exchangeRate);
+
+        let rate = {
+            vnd: 23000,
+            usd: 1,
+            yen: 2200
+        }
+
+        function exchangeRate() {
+            
+
+            let afterExchange = iMount.value * rate[sFromList.value] / rate[sToList.value];
+            //                                  vnd = 23000         usd = 1
+            result.innerHTML = `Result: ${afterExchange}`;
+        }
+    </script>
+</body>
+
+</html>
