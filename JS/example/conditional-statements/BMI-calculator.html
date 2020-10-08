@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+</head>
+
+<body>
+
+    <input type="text" id="weight" placeholder="Mời nhập cân nặng (kg)">
+    <input type="text" id="height" placeholder="Mời nhập chiều cao (cm)">
+    <input type="button" id="excute" value="Tính BMI">
+    <!-- <div id="result"></div> -->
+
+    <script>
+        let weight = document.getElementById("weight");
+        let height = document.getElementById("height");
+        let excute = document.getElementById("excute");
+        excute.addEventListener("click", caculateBMI);
+        // let result = document.getElementById("result");
+
+        function calculateBMI() {
+            let parsedWeight = parseInt(weight.value);
+            let parsedHeight = parseInt(height.value);
+            let bmi = parsedWeight / ((parsedHeight/100) * (parsedHeight/100));
+            if (bmi < 18)
+                document.write("Gầy");
+            else if (bmi < 25.0)
+                document.write("Bình thường");
+            else if (bmi < 30.0)
+                document.write("Hơi béo");
+            else
+                document.write("Béo phì");
+
+        }
+    </script>
+</body>
+
+</html>
