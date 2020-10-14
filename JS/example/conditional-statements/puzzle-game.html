@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzle Game</title>
+    <style>
+      img {
+        width: 500px;
+        height: 100px;
+        border: 5px solid black;
+        margin-bottom: 10px;
+      }
+      .red {
+        border: 6px solid red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="contain">
+      <img src="" id="img1" alt="" />
+      <img src="" id="img2" alt="" />
+      <img src="" id="img3" alt="" />
+      <img src="" id="img4" alt="" />
+      <img src="" id="img5" alt="" />
+    </div>
+
+    <script>
+      let totalImg = document.getElementsByTagName("img");
+
+      let position1 = document.getElementById("position-1");
+      let contain = document.getElementById("contain");
+      contain.addEventListener("click", insertImages);
+
+      let saveImg = [
+        [
+          "panda_swap_part1x1.jpg",
+          "monkey_part1x1.jpg",
+          "funny-cat1_part1x1.jpg",
+        ],
+        [
+          "panda_swap_part2x1.jpg",
+          "monkey_part2x1.jpg",
+          "funny-cat1_part2x1.jpg",
+        ],
+        [
+          "panda_swap_part3x1.jpg",
+          "monkey_part3x1.jpg",
+          "funny-cat1_part3x1.jpg",
+        ],
+        [
+          "panda_swap_part4x1.jpg",
+          "monkey_part4x1.jpg",
+          "funny-cat1_part4x1.jpg",
+        ],
+        [
+          "panda_swap_part5x1.jpg",
+          "monkey_part5x1.jpg",
+          "funny-cat1_part5x1.jpg",
+        ],
+      ];
+      let arrCheck = [];
+
+      function init() {
+        for (let i = 0; i < totalImg.length; i++) {
+          let random = Math.floor(Math.random() * 3);
+          arrCheck.push(random);
+          totalImg[i].src = `puzzle-img/${saveImg[i][random]}`;
+        }
+      }
+      //insert images
+      function insertImages(e) {
+        let random = Math.floor(Math.random() * 3);
+        let temp1 = e.target.id.charAt(e.target.id.length - 1);
+        e.target.src = `puzzle-img/${saveImg[temp1 - 1][random]}`;
+        arrCheck[temp1 - 1] = random;
+        // console.log(arrCheck);
+        // console.log(checkPuzzle());
+        if (checkPuzzle() == true) {
+          for (let i = 0; i < totalImg.length; i++) {
+            totalImg[i].classList.add("red");
+          }
+        }
+      }
+      //puzzle
+      function checkPuzzle() {
+        let check = false;
+        if (arrCheck.length < 5) {
+          return false;
+        }
+        for (let i = 0; i < arrCheck.length - 1; i++) {
+          if (arrCheck[i] == arrCheck[i + 1]) {
+            check = true;
+          } else {
+            check = false;
+            return check;
+          }
+        }
+        return check;
+      }
+      init();
+    </script>
+  </body>
+</html>
