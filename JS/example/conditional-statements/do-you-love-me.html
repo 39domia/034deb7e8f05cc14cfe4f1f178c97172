@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Do you love me</title>
     <style>
-      body {
+      /* body {
         width: 100%;
         height: 100%;
-      }
+      } */
       #no-btn {
         position: relative;
       }
@@ -25,13 +25,15 @@
       let noBtn = document.getElementById("no-btn");
       yesBtn.addEventListener("click", yesClick);
       noBtn.addEventListener("mouseover", noMouseover);
+      const maxTop = window.innerHeight - 150;
+      const maxLeft = window.innerWidth - 150;
 
       function yesClick() {
         alert("<3");
       }
       function noMouseover() {
-        let random1 = Math.floor(Math.random() * 500);
-        let random2 = Math.floor(Math.random() * 1500);
+        let random1 = Math.floor(Math.random() * maxTop);
+        let random2 = Math.floor(Math.random() * maxLeft);
         noBtn.style.top = `${random1}px`;
         noBtn.style.left = `${random2}px`;
       }
