@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Prime number</title>
+  </head>
+
+  <body>
+    <div id="output"></div>
+    <script>
+      let output = document.getElementById("output");
+      let unParseNumbers = prompt("Nhập số lượng số nguyên tố");
+      let numbers = parseInt(unParseNumbers);
+      let count = 0;
+      let N = 3;
+      let text = "Số nguyên tố là: 2 <br>";
+      // debugger;
+      while (count < numbers - 1) {
+        // text += "<br> Số nguyên tố là: " + N;
+        let noSurplus = 0; //biến đếm số lượng số chia hết không dư.
+
+        for (let i = 2; i < N; i++) {
+          if (N % i == 0) {
+            noSurplus++;
+          }
+        }
+        if (noSurplus == 0) {
+          text += "Số nguyên tố là: " + N + "<br>";
+          count++;
+        }
+        N++;
+        // noSurplus = 0;
+
+        // if (tongDu > 0) {
+        //   // in ra N la so nguyen to
+        //   text += "Số nguyên tố là: " + N + "<br>";
+        //   count++;
+
+        //   tongDu = 0;
+        // }
+        N++;
+      }
+      output.innerHTML = text;
+    </script>
+  </body>
+</html>
