@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tính số ngày trong một tháng</title>
-</head>
-<body>
-
-    <input type="text" name="" placeholder="Nhập tháng (1 - 12)" id="input">
-    <input type="button" id="cal" value="Tính số ngày">
+  </head>
+  <body>
+    <input type="text" name="" placeholder="Nhập tháng (1 - 12)" id="input" />
+    <input type="button" id="cal" value="Tính số ngày" />
 
     <script>
-        let unParseInput = document.getElementById("input");
-        let cal = document.getElementById("cal");
-        cal.addEventListener("click", calDay);
+      let unParseInput = document.getElementById("input");
+      let cal = document.getElementById("cal");
+      cal.addEventListener("click", calDay);
 
-        function calDay(){
-            let input = parseInt(unParseInput.value);
-            switch (input) {
-                case 1:
-                    document.write("Tháng 1 có 31 ngày.") 
-                    break;
-                
-                case 2:
-                    document.write("Tháng 2 có 28 hoặc 28 ngày.") 
-                    break;
-                
-                case 3:
-                    document.write("Tháng 3 có 31 ngày.") 
-                    break;
-                
-                case 4:
-                    document.write("Tháng 4 có 30 ngày.") 
-                    break;
-                
-                case 5:
-                    document.write("Tháng 5 có 31 ngày.") 
-                    break;
-                
-                case 6:
-                    document.write("Tháng 6 có 30 ngày.") 
-                    break;
-                
-                case 7:
-                    document.write("Tháng 7 có 31 ngày.") 
-                    break;
-                
-                case 8:
-                    document.write("Tháng 8 có 31 ngày.") 
-                    break;
-                
-                case 9:
-                    document.write("Tháng 9 có 30 ngày.") 
-                    break;
-                
-                case 10:
-                    document.write("Tháng 10 có 31 ngày.") 
-                    break;
-                
-                case 11:
-                    document.write("Tháng 11 có 30 ngày.") 
-                    break;
-                
-                case 12:
-                    document.write("Tháng 12 có 31 ngày.") 
-                    break;
-                
-                default:
-                    document.write("Bạn đã nhập sai")
-                    break;
-            }
+      function calDay() {
+        let input = parseInt(unParseInput.value);
+        switch (input) {
+          case 1:
+            document.write("Tháng 1 có 31 ngày.");
+            break;
+
+          case 2:
+            document.write("Tháng 2 có 28 hoặc 29 ngày.");
+            break;
+
+          case 3:
+            document.write("Tháng 3 có 31 ngày.");
+            break;
+
+          case 4:
+            document.write("Tháng 4 có 30 ngày.");
+            break;
+
+          case 5:
+            document.write("Tháng 5 có 31 ngày.");
+            break;
+
+          case 6:
+            document.write("Tháng 6 có 30 ngày.");
+            break;
+
+          case 7:
+            document.write("Tháng 7 có 31 ngày.");
+            break;
+
+          case 8:
+            document.write("Tháng 8 có 31 ngày.");
+            break;
+
+          case 9:
+            document.write("Tháng 9 có 30 ngày.");
+            break;
+
+          case 10:
+            document.write("Tháng 10 có 31 ngày.");
+            break;
+
+          case 11:
+            document.write("Tháng 11 có 30 ngày.");
+            break;
+
+          case 12:
+            document.write("Tháng 12 có 31 ngày.");
+            break;
+
+          default:
+            document.write("Bạn đã nhập sai");
+            break;
         }
-
+      }
     </script>
-</body>
+  </body>
 </html>
