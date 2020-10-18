@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5. -->
+
+    <div id="print"></div>
+    <script>
+      let count = 0;
+      let firstN = 0;
+      let secondN = 1;
+      let print = document.getElementById("print");
+      //   print.innerHTML = "Số fibonacci thứ 1 là: " + secondN + "<br>";
+      while (count < 1) {
+        secondN += firstN;
+        firstN = secondN - firstN;
+        // print.innerHTML += `Số fibonacci thứ ${i + 2} là: ${secondN}<br>`;
+        // console.log(secondN);
+        // count++;
+        if (secondN % 5 == 0) {
+          count++;
+          print.innerHTML =
+            "Số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + secondN;
+        }
+      }
+    </script>
+  </body>
+</html>
