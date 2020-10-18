@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ. -->
+
+    <script>
+      let temperature = 0;
+
+      function insertTemp() {
+        temperature = prompt("Nhập nhiệt độ");
+        // return temperature;
+        check();
+      }
+
+      //   debugger;
+      function check() {
+        if (temperature > 100) {
+          alert("Nhiệt độ quá cao, vui lòng giảm nhiệt độ");
+          //   temperature = 0;
+          // temperature = prompt("Nhập nhiệt độ");
+        }
+        if (temperature < 20) {
+          alert("Nhiệt độ quá thấp, vui lòng tăng nhiệt độ");
+          //   temperature = 0;
+          // insertTemp();
+          // temperature = prompt("Nhập nhiệt độ");
+        }
+        insertTemp();
+      }
+
+      insertTemp();
+    </script>
+  </body>
+</html>
