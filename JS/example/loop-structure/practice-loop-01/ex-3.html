@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên. -->
+
+    <div id="print"></div>
+    <script>
+      let firstN = 0;
+      let secondN = 1;
+      let print = document.getElementById("print");
+      print.innerHTML = "Số fibonacci thứ 1 là: " + secondN + "<br>";
+      for (let i = 0; i < 19; i++) {
+        secondN += firstN;
+        firstN = secondN - firstN;
+        // console.log(firstN, secondN);
+        // print.innerHTML +=
+        //   "Số fibonacci thứ " + i + 2 + " là: " + secondN + "<br>";
+        print.innerHTML += `Số fibonacci thứ ${i + 2} là: ${secondN}<br>`;
+      }
+    </script>
+  </body>
+</html>
