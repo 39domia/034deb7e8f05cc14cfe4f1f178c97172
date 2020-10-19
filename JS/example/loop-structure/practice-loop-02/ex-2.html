@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- Bài 2: Tính giai thừa của một số nguyên dương -->
+
+    <input type="text" placeholder="Nhập số " id="number" />
+    <input type="button" value="In Giai Thừa" id="print" />
+    <div id="result"></div>
+    <script>
+      let number = document.getElementById("number");
+      let print = document.getElementById("print");
+      let result = document.getElementById("result");
+
+      print.addEventListener("click", action);
+
+      function action() {
+        let factorial = 1;
+        for (let i = 1; i < parseInt(number.value) + 1; i++) {
+          factorial *= i;
+          //   console.log(factorial);
+        }
+        result.innerHTML = `Giai thừa của ${number.value} là ${factorial}`;
+      }
+    </script>
+  </body>
+</html>
