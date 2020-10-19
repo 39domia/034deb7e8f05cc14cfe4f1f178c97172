@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- Bài 8: Game đoán số
+
+Nâng cấp game "Hãy thử đoán xem!"
+
+1. Thiết kế giao diện: Giao diện chỉ gồm 1 Button "Chơi": cho phép người dùng bắt đầu chơi hoặc chơi lại 
+
+2. Mô tả ứng dụng: Khi người dùng nhấn vào button “Chơi”:
+
+Ứng dụng hiển thị cửa sổ prompt cho phép người dùng nhập vào muốn đoán trong khoảng nào
+Ứng dụng chọn ra số ngẫu nhiên trong khoảng mà ngườI dùng chọn 
+Ứng dụng hiển thị cửa số prompt cho người dùng nhập giá trị mà người dùng đoán 
+Ứng dụng lấy kết quả và so sánh với giá trị ngẫu nhiên.
+Nếu bằng thì hiển thị thông báo chúc mừng và kết thúc lượt chơi 
+Nếu lớn hơn hoặc bé thua thì hiển thị thông báo lớn hơn hay bé thua và cho phép người dùng lựa chọn lại.
+Chú ý: Người dùng chỉ được lựa chọn tối đa ba lần -->
+
+    <input
+      type="text"
+      name=""
+      placeholder="Nhập số trong khoảng từ"
+      id="range-from"
+    />
+    <input
+      type="text"
+      name=""
+      placeholder="Nhập số trong khoảng đến"
+      id="range-to"
+    />
+    <input type="button" value="Nhập số" id="btn-init" />
+    <input type="text" name="" placeholder="Nhập số dự đoán" id="guess" />
+    <input type="button" value="Chơi" id="btn-play" />
+    <div id="print"></div>
+
+    <script>
+      let uRangeFrom = document.getElementById("range-from");
+      let uRangeTo = document.getElementById("range-to");
+      let print = document.getElementById("print");
+      let btnPlay = document.getElementById("btn-play");
+      let uGuess = document.getElementById("guess");
+      let btnInit = document.getElementById("btn-init");
+
+      btnInit.addEventListener("click", init);
+      btnPlay.addEventListener("click", guessNumber);
+
+      let trueN = 0;
+
+      function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      function init() {
+        trueN = getRndInteger(
+          parseInt(uRangeFrom.value),
+          parseInt(uRangeTo.value)
+        );
+      }
+      let i = 0;
+
+      function guessNumber() {
+        if (i == 3) {
+          print.innerHTML = "Bạn đã hết lượt trả lời";
+        } else if (parseInt(uGuess.value) == trueN) {
+          print.innerHTML = "Bạn đã trả lời đúng !!!";
+        } else {
+          print.innerHTML = "Bạn đã trả lời sai, hãy thử lại :((";
+          i++;
+        }
+      }
+    </script>
+  </body>
+</html>
