@@ -13,14 +13,14 @@
     <div id="result"></div>
     <script>
       let count = document.getElementById("count");
-      let firstN = 0;
-      let secondN = 1;
       let print = document.getElementById("print");
       let result = document.getElementById("result");
 
       print.addEventListener("click", action);
 
       function action() {
+        let firstN = 0;
+        let secondN = 1;
         result.innerHTML = "Số fibonacci thứ 1 là: " + secondN + "<br>";
         for (let i = 0; i < parseInt(count.value) - 1; i++) {
           secondN += firstN;
