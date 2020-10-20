@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+
   <body>
     <!-- Bài 4: In hình chữ nhật -->
 
-    <script></script>
+    <div id="result"></div>
+    <script>
+      let result = document.getElementById("result");
+      let star = "*";
+      let space = "&nbsp;&nbsp;";
+      for (let i = 1; i <= 7; i++) {
+        result.innerHTML += "<br>" + star;
+        for (let j = 1; j < 21; j++) {
+          if (i > 1 && j < 20 && i < 7) {
+            result.innerHTML += space;
+          } else {
+            result.innerHTML += star;
+          }
+        }
+      }
+    </script>
   </body>
 </html>
