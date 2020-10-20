@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="input" placeholder="Nhập từ cần tra cứu" />
+    <input type="button" value="Tra cứu" id="search" />
+    <div id="result"></div>
+    <script>
+      let english = ["a", "b", "c"];
+      let vietnamese = ["a1", "b1", "c1"];
+
+      let input = document.getElementById("input");
+      let btnSearch = document.getElementById("search");
+      let result = document.getElementById("result");
+      btnSearch.addEventListener("click", search);
+
+      function search() {
+        let sub = false;
+        // let i;
+        for (let i = 0; i < english.length; i++) {
+          if (input.value === english[i]) {
+            // return true;
+            result.innerHTML = "Kết quả là: " + vietnamese[i];
+            sub = true;
+            break;
+          }
+          if (!sub) {
+            result.innerHTML = "Không tìm thấy từ này";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
