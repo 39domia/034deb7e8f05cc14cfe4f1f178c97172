@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex 5</title>
+  </head>
+  <body>
+    <!-- Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, 
+        số tháng cho vay và lãi xuất hàng tháng. -->
+
+    <input type="text" name="" id="insert-money" placeholder="Nhập số tiền" />
+    <input type="text" name="" id="insert-months" placeholder="Nhập số tháng" />
+    <input type="button" value="Tính" id="cal" />
+    <div id="result"></div>
+
+    <script>
+      let insertMonths = document.getElementById("insert-months");
+      let insertMoney = document.getElementById("insert-money");
+      let cal = document.getElementById("cal");
+      let result = document.getElementById("result");
+      cal.addEventListener("click", execute);
+
+      let interestRate = 0.5;
+
+      function execute() {
+        result.innerHTML = `Lãi suất ngân hàng của ${parseInt(
+          insertMonths.value
+        )} tháng là: ${
+          parseInt(insertMoney.value) *
+          parseInt(insertMonths.value) *
+          interestRate
+        }`;
+      }
+    </script>
+  </body>
+</html>
