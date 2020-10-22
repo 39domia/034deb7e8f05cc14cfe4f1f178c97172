@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic tac toe</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      tr,
+      td {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+      }
+
+      tr > td {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Caro Game Simple</h3>
+    <div id="game-board"></div>
+
+    <!-- <table></table> -->
+    <script>
+      let gameBoard = document.getElementById("game-board");
+      gameBoard.addEventListener("click", insertValue);
+      let data = "";
+
+      // - tạo bàn cờ 3 * 3, có bảng và đưa vào dấu cách trong mỗi ô
+
+      function initTable() {
+        data += "<table><tbody>";
+        for (let i = 0; i < 3; i++) {
+          // data += `<tr id="tr-${i}">`;
+          data += `<tr>`;
+          for (let j = 0; j < 3; j++) {
+            data += `<td id="${i}_${j}"></td>`;
+            // data += `<td></td>`;
+          }
+          data += "</tr>";
+        }
+        data += "</table></tbody>";
+        gameBoard.innerHTML += data;
+      }
+      let player = 1;
+      // let playerInArr = 1;
+      let arr = [[], [], []];
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          arr[i][j] = 0;
+        }
+      }
+      // mỗi lần click vào ô thì sẽ đổi lần lượt giá trị X và Y
+      //tạo hàm vứt giá trị vào mảng
+      function insertValue(e) {
+        const [i, j] = e.target.id.split("_");
+        if (player % 2 == 0) {
+          // arr[e.target.id.split("_")[0]][e.target.id.split("_")[1]] = 1;
+          arr[parseInt(i)][parseInt(j)] = 1;
+          // console.log(e.target.id.split("_")[1]);
+          e.target.innerHTML = `X`;
+        } else {
+          // arr[e.target.id.split("_")[0]][e.target.id.split("_")[1]] = 2;
+          arr[parseInt(i)][parseInt(j)] = 2;
+          // console.log(e.target.id);
+          e.target.innerHTML = `O`;
+        }
+        // console.log(i, j);
+        console.log(arr);
+        // e.target.innerHTML = player % 2 === 0 ? "X" : "O";
+        player++;
+        checkBoard();
+        // console.log(arr);
+      }
+      // function insertArr() {}
+      // kiểm tra xem điều kiện chiến thắng, xét hàng dọc, ngang chéo, nếu trùng giá trị 3 ô liên tiếp thì in ra kết quả
+      let win = false;
+
+      function checkBoard() {
+        for (let i = 0; i < 3; i++) { 
+          if (arr[i][0] == 2 && arr[i][1] == 2 && arr[i][2] == 2) {
+            console.log("o win");
+          }
+          if (arr[i][0] == 1 && arr[i][1] == 1 && arr[i][2] == 1 ) {
+            console.log("x win");
+          }
+          if (arr[0][i] == 1 && arr[1][i] == 1 && arr[2][i] == 1 ) {
+            console.log("x  win");
+          }
+          if (arr[0][i] == 2 && arr[1][i] == 2 && arr[2][i] == 2 ) {
+            console.log("o  win");
+          }
+        }
+            if (arr[0][0] == 1 && arr[1][1] == 1 && arr[2][2] == 1 ) {
+              console.log("x  win");
+            }
+            if (arr[0][0] == 2 && arr[1][1] == 2 && arr[2][2] == 2 ) {
+              console.log("o  win");
+            }
+            if (arr[2][0] == 2 && arr[1][1] == 2 && arr[0][2] == 2 ) {
+              console.log("o  win");
+            }
+            if (arr[2][0] == 1 && arr[1][1] == 1 && arr[0][2] == 1 ) {
+              console.log("x  win");
+            }
+      }
+      initTable();
+    </script>
+  </body>
+</html>
