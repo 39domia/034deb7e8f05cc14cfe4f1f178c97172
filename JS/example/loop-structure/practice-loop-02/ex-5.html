@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ex 5</title>
-  </head>
-  <body>
-    <!-- Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, 
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ex 5</title>
+</head>
+
+<body>
+  <!-- Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, 
         số tháng cho vay và lãi xuất hàng tháng. -->
 
-    <input type="text" name="" id="insert-money" placeholder="Nhập số tiền" />
-    <input type="text" name="" id="insert-months" placeholder="Nhập số tháng" />
-    <input type="button" value="Tính" id="cal" />
-    <div id="result"></div>
+  <input type="text" name="" id="insert-money" placeholder="Nhập số tiền" />
+  <input type="text" name="" id="insert-months" placeholder="Nhập số tháng" />
+  <input type="button" value="Tính" id="cal" />
+  <div id="result"></div>
 
-    <script>
-      let insertMonths = document.getElementById("insert-months");
-      let insertMoney = document.getElementById("insert-money");
-      let cal = document.getElementById("cal");
-      let result = document.getElementById("result");
-      cal.addEventListener("click", execute);
+  <script>
+    let insertMonths = document.getElementById("insert-months");
+    let insertMoney = document.getElementById("insert-money");
+    let cal = document.getElementById("cal");
+    let result = document.getElementById("result");
+    cal.addEventListener("click", execute);
 
-      let interestRate = 0.5;
+    let interestRate = 0.1; //tỷ lệ lãi hàng tháng
+    let sum = 0; //tong
+    // let money = 0;
+    // let months = 0;
 
-      function execute() {
-        result.innerHTML = `Lãi suất ngân hàng của ${parseInt(
-          insertMonths.value
-        )} tháng là: ${
-          parseInt(insertMoney.value) *
-          parseInt(insertMonths.value) *
-          interestRate
-        }`;
+    function execute() {
+      let parseMonths = parseInt(insertMonths.value);
+      let parseMoney = parseInt(insertMoney.value);
+
+      sum = parseMoney;
+      // money = parseMoney;
+      // months = parseMonths;
+      for (let i = 0; i < parseMonths; i++) {
+        sum = sum * interestRate + sum;
       }
-    </script>
-  </body>
+      result.innerHTML = `Số tiền lãi cần trả trong ${parseMonths} tháng là: ${sum}`;
+    }
+  </script>
+</body>
+
 </html>
