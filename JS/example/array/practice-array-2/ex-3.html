@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+
+<body>
+    <!-- Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong
+    mảng. -->
+
+    <script>
+        let str = "adsfffjdasfgn35773bdsbd234skbd";
+
+        // function countNumber() {
+        let arrParse = [];
+        let arrOfStr = str.split("");
+        let count = 0;
+        for (let i = 0; i < arrOfStr.length; i++) {
+            arrParse.push(parseInt(arrOfStr[i]))
+        }
+        for (let j = 0; j < arrParse.length; j++) {
+            if (arrParse[j] % 1 === 0) {
+                count++;
+            }
+        }
+        document.write("Số lượng ký tự dạng số là: " + count)
+        // }
+        // countNumber();
+    </script>
+</body>
+
+</html>

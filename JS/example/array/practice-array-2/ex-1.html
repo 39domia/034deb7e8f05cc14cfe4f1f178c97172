@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+
+<body>
+    <!-- Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn, in ra các phần tử trong mảng. -->
+
+    <script>
+        let a = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4],
+            [7, 0, 7, 27],
+            [7, 4, 28, 14],
+            [3, 10, 26, 7]
+        ];
+
+        function printArray() {
+            for (let i = 0; i < a.length; i++) {
+                document.write(`row ${i}</br>`);
+                for (let j = 0; j < a[i].length; j++) {
+                    document.write(`value: ${a[i][j]}</br>`);
+                }
+            }
+        }
+        printArray();
+    </script>
+</body>
+
+</html>
