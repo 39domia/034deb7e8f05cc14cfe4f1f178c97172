@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4</title>
+</head>
+
+<body>
+    <!-- Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình
+tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V
+is not in the array". -->
+
+    <script>
+        let inputArr = [1, 2, 3, 4, 5, 6, 7, 23, 1, 2, 3];
+        let v = 9;
+
+        function inArray() {
+            let temp = false;
+            for (let i = 0; i < (inputArr.length); i++) {
+                if (inputArr[i] == v) {
+                    document.write("V is in the array");
+                    temp = true
+                    break;
+                }
+            }
+            if (temp == false) {
+                document.write("V is not in the array");
+            }
+            // document.writeln(inputArr);
+        }
+        inArray();
+    </script>
+</body>
+
+</html>

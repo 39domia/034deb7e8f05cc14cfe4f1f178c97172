@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. Chương trình hiển thị ra được phần tử có
+    giá trị lớn nhất trong mảng và vị trí của phần tử đó. -->
+
+    <script>
+        let max = 0;
+        let inputArr = [1, 2, 3, 4, 5, 6, 7, 23, 234, 435345, 546, 656, 765, 5243, 33, 11, 12, 13];
+
+        function findMax() {
+            max = inputArr[0];
+            for (let i = 0; i < inputArr.length; i++) {
+                if (inputArr[i] > max) {
+                    max = inputArr[i];
+                }
+            }
+            document.write(max);
+        }
+        findMax();
+    </script>
+</body>
+
+</html>

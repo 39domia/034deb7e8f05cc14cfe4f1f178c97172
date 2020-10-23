@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8</title>
+</head>
+
+<body>
+    <!-- Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm
+dần và hiển thị ra mảng đã được sắp xếp. -->
+    <script>
+        let inputArr = [1, 2, 3, 4, 5, 23, 1, 2, 3];
+
+        function soft() {
+            inputArr.sort(function (a, b) {
+                return b - a;
+            });
+            document.write(inputArr);
+        }
+        soft();
+    </script>
+</body>
+
+</html>

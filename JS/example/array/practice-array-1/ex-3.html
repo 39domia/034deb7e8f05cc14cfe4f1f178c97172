@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình
+    của các phần tử trong mảng. -->
+
+    <script>
+        let max = 0;
+        let average = 0;
+        let inputArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        function findMax() {
+            max = inputArr[0];
+            for (let i = 0; i < inputArr.length; i++) {
+                if (inputArr[i] > max) {
+                    max = inputArr[i];
+                }
+            }
+            document.writeln(max);
+        }
+
+        function findAverage() {
+            for (let i = 0; i < inputArr.length; i++) {
+                average += inputArr[i];
+            }
+            average = average / inputArr.length;
+            document.writeln(average);
+        }
+        findMax();
+        findAverage();
+    </script>
+</body>
+
+</html>

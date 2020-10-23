@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4</title>
+</head>
+
+<body>
+    <!-- Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó. -->
+
+    <script>
+        let inputArr = [1, 2, 3, 4, 5, 6, 7, "as", "a", 23, 1, 2, 3];
+
+        function reverse() {
+            // let temp;
+            for (let i = 0; i < (inputArr.length / 2); i++) {
+                let temp = inputArr[i];
+                inputArr[i] = inputArr[inputArr.length - (i + 1)];
+                inputArr[inputArr.length - (i + 1)] = temp;
+            }
+            document.writeln(inputArr);
+        }
+        reverse();
+    </script>
+</body>
+
+</html>
