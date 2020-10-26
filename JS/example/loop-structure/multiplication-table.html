@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <script>
-      let sout, i, j;
-      sout = "<table border='1' width='800px' cellspacing='0' cellpadding='3'>";
-      i = 2;
-      j = 1;
-      while (i < 10) {
-        sout = sout + "<tr>";
-        while (j < 10) {
-          //   sout = sout + "<td>" + i * j + "</td>";
-          sout = sout + `<td>${i} x ${j} = ${i * j}</td>`;
-          j++;
-        }
-        sout = sout + "</tr>";
-        j = 1;
-        i++;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let sout, i, j;
+    sout = "<table border='1' width='800px' cellspacing='0' cellpadding='3'>";
+    i = 2;
+    j = 2;
+    for (let i = 2; i < 10; i++) {
+      sout = sout + "<tr>";
+      for (j = 2; j < 10; j++) {
+        //   sout = sout + "<td>" + i * j + "</td>";
+        sout = sout + `<td>${j} x ${i} = ${i * j}</td>`;
+
       }
-      sout = sout + "</table>";
-      document.write(sout);
-    </script>
-  </body>
+      sout = sout + "</tr>";
+    }
+    sout = sout + "</table>";
+    document.write(sout);
+  </script>
+</body>
+
 </html>
