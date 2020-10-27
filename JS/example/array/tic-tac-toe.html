@@ -34,23 +34,19 @@
     let data = "";
 
     // - tạo bàn cờ 3 * 3, có bảng và đưa vào dấu cách trong mỗi ô
-
     function initTable() {
       data += "<table><tbody>";
       for (let i = 0; i < 3; i++) {
-        // data += `<tr id="tr-${i}">`;
-        data += `<tr>`;
+        data += "<tr>";
         for (let j = 0; j < 3; j++) {
           data += `<td id="${i}_${j}"></td>`;
-          // data += `<td></td>`;
         }
         data += "</tr>";
       }
-      data += "</table></tbody>";
+      data += "</tbody></table>";
       gameBoard.innerHTML += data;
     }
     let player = 1;
-    // let playerInArr = 1;
     let arr = [
       [],
       [],
@@ -61,32 +57,22 @@
         arr[i][j] = 0;
       }
     }
+
     // mỗi lần click vào ô thì sẽ đổi lần lượt giá trị X và Y
-    //tạo hàm vứt giá trị vào mảng
     function insertValue(e) {
       const [i, j] = e.target.id.split("_");
       if (player % 2 == 0) {
-        // arr[e.target.id.split("_")[0]][e.target.id.split("_")[1]] = 1;
         arr[parseInt(i)][parseInt(j)] = 1;
-        // console.log(e.target.id.split("_")[1]);
         e.target.innerHTML = `X`;
       } else {
-        // arr[e.target.id.split("_")[0]][e.target.id.split("_")[1]] = 2;
         arr[parseInt(i)][parseInt(j)] = 2;
-        // console.log(e.target.id);
         e.target.innerHTML = `O`;
       }
-      // console.log(i, j);
-      // console.log(arr);
-      // e.target.innerHTML = player % 2 === 0 ? "X" : "O";
       player++;
       checkBoard();
-      // console.log(arr);
     }
-    // function insertArr() {}
-    // kiểm tra xem điều kiện chiến thắng, xét hàng dọc, ngang chéo, nếu trùng giá trị 3 ô liên tiếp thì in ra kết quả
-    let win = false;
 
+    // kiểm tra xem điều kiện chiến thắng, xét hàng dọc, ngang chéo, nếu trùng giá trị 3 ô liên tiếp thì in ra kết quả
     function checkBoard() {
       for (let i = 0; i < 3; i++) {
         if (arr[i][0] == 2 && arr[i][1] == 2 && arr[i][2] == 2) {
