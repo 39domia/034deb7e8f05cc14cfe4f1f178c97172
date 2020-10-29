@@ -9,13 +9,13 @@
 
 <body>
 
-    <!-- Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm.
-     Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình. -->
+    <!-- Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn.Gọi hàm vừa xây dựng được -->
     <script>
-        function plus(number) {
-            return number += 1;
+        function areaAndCircumference(r) {
+            let pi = Math.PI;
+            return `Diện tích là: ${Math.round(r*r*pi * 100) / 100}, chu vi là: ${Math.round(r*2*pi * 100) / 100}`;
         }
-        console.log(plus(2));
+        console.log(areaAndCircumference(2));
     </script>
 </body>
 

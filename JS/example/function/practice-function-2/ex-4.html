@@ -8,18 +8,17 @@
 </head>
 
 <body>
+    <!-- Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại trả về
+false. -->
 
     <script>
-        function addNumbers() {
-            firstNum = 4;
-            secondNum = 8;
-            result = firstNum + secondNum;
-            return result;
+        function checkNumber(number) {
+            if (isNaN(number)) {
+                return false;
+            } else
+                return true;
         }
-        result1 = 0;
-        alert("Truoc khi goi ham " + result1);
-        result1 = addNumbers();
-        alert("Sau khi goi ham " + result1);
+        console.log(checkNumber(4));;
     </script>
 </body>
 

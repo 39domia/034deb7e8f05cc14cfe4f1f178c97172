@@ -9,17 +9,16 @@
 
 <body>
 
-    <script>
-        let arr = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
-        let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    <!-- Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất. -->
 
-        function find(str) {
-            if (arr.indexOf(str) !== -1) {
-                return arr2[arr.indexOf(str)];
-            } else
-                return "Not found";
+    <script>
+        function find(a, b, c) {
+            let min;
+            (a < b) ? ((a < c) ? min = a : min = c) : (b <
+                c ? min = b : min = c);
+            return min;
         }
-        console.log(find("Vega"));
+        console.log(find(1, 53, 5));
     </script>
 </body>
 

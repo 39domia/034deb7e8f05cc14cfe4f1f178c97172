@@ -4,22 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5</title>
+    <title>8</title>
 </head>
 
 <body>
-
+    <!-- Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó. -->
     <script>
-        let arr = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
-        let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
-
-        function find(str) {
-            if (arr.indexOf(str) !== -1) {
-                return arr2[arr.indexOf(str)];
-            } else
-                return "Not found";
+        function reverseArray(arr) {
+            return arr.reverse();
         }
-        console.log(find("Vega"));
+        console.log(reverseArray([1, 2, 3, 4, 5]));
     </script>
 </body>
 

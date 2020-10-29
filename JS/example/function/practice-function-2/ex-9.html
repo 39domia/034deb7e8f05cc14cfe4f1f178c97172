@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5</title>
+    <title>9</title>
 </head>
 
 <body>
-
+    <!-- Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng
+    không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1. -->
     <script>
-        let arr = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
-        let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
-
-        function find(str) {
-            if (arr.indexOf(str) !== -1) {
-                return arr2[arr.indexOf(str)];
+        function reverseArray(arr, str) {
+            let count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].indexOf(str) !== -1) {
+                    count++;
+                }
+            }
+            if (count > 0) {
+                return count;
             } else
-                return "Not found";
+                return -1;
         }
-        console.log(find("Vega"));
+        console.log(reverseArray(["a", "b", "c", "a", "d", "e"], "ad"));
     </script>
 </body>
 
