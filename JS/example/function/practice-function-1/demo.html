@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Caro Game Simple</h2>
+    <p id="carogame"></p>
+    <!-- <input type="button" value="Change value" onclick="changeValue()" /> -->
+
+    <script>
+        let b = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+        let nguoichoi = "X";
+
+        //Tạo khung cho BảngBảng
+        for (let i = 0; i < 3; i++) {
+            board[i] = new Array(".", ".", ".");
+        }
+        for (let i = 0; i < 3; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 3; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data +=
+            "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
+        b.innerHTML = data;
+
+        function changeValue() {
+            let player1 = prompt("Nhập X: ");
+            let player2 = prompt("Nhập Y: ");
+            data = "";
+            board[player1][player2] = nguoichoi;
+            for (let i = 0; i < 3; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 3; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            data +=
+                "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
+            b.innerHTML = data;
+
+            lanluot();
+        }
+
+        function lanluot() {
+            if (nguoichoi == "X") {
+                nguoichoi = "O";
+            } else {
+                nguoichoi = "X";
+            }
+        }
+    </script>
+</body>
+
+</html>
