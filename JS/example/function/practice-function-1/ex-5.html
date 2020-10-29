@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+</head>
+
+<body>
+
+    <script>
+        let arr = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        function find(str) {
+            if (arr.indexOf(str) !== -1) {
+                return arr2[arr.indexOf(str)];
+            } else
+                return "Not found";
+        }
+        console.log(find("Vega"));
+    </script>
+</body>
+
+</html>
