@@ -4,11 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Product-management-application</title>
 </head>
 
 <body>
+    <div class="add-product">
+        <div class="container">
 
+            <h4>Add new product</h4>
+            <form class="form-inline">
+
+                <!-- <div class="form-group mb-2">
+                    </div> -->
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" class="form-control" id="input-new-product" placeholder="New product">
+                </div>
+                <button id="add-btn" type="submit" class="btn btn-primary mb-2">Add</button>
+            </form>
+        </div>
+    </div>
+    <div class="product-list">
+        <div class="container">
+            <h4>Display All Product</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col"></th>
+                        <th scope="col"> </th>
+                        <th id="product-number" scope="col">a</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
