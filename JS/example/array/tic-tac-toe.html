@@ -27,13 +27,12 @@
   <h3>Caro Game Simple</h3>
   <div id="game-board"></div>
 
-  <!-- <table></table> -->
   <script>
     let gameBoard = document.getElementById("game-board");
     gameBoard.addEventListener("click", insertValue);
     let data = "";
 
-    // - tạo bàn cờ 3 * 3, có bảng và đưa vào dấu cách trong mỗi ô
+    // - tạo bàn cờ 3 * 3 bằng tag table, tr, td
     function initTable() {
       data += "<table><tbody>";
       for (let i = 0; i < 3; i++) {
@@ -58,9 +57,11 @@
       }
     }
 
-    // mỗi lần click vào ô thì sẽ đổi lần lượt giá trị X và Y
+    // mỗi lần click vào ô thì sẽ đổi lần lượt giá trị X và Y và gián giá trị của địa chỉ tương ứng vào mảng arr
     function insertValue(e) {
-      const [i, j] = e.target.id.split("_");
+      // const [i, j] = e.target.id.split("_");
+      let i = e.target.id.split("_")[0];
+      let j = e.target.id.split("_")[1];
       if (player % 2 == 0) {
         arr[parseInt(i)][parseInt(j)] = 1;
         e.target.innerHTML = `X`;
@@ -72,33 +73,33 @@
       checkBoard();
     }
 
-    // kiểm tra xem điều kiện chiến thắng, xét hàng dọc, ngang chéo, nếu trùng giá trị 3 ô liên tiếp thì in ra kết quả
+    // kiểm tra xem điều kiện chiến thắng, xét hàng dọc, ngang chéo, nếu trùng giá trị 3 ô liên tiếp thì in ra kết quả.
     function checkBoard() {
       for (let i = 0; i < 3; i++) {
         if (arr[i][0] == 2 && arr[i][1] == 2 && arr[i][2] == 2) {
-          alert("o win");
+          alert("O win");
         }
         if (arr[i][0] == 1 && arr[i][1] == 1 && arr[i][2] == 1) {
-          alert("x win");
-        }
-        if (arr[0][i] == 1 && arr[1][i] == 1 && arr[2][i] == 1) {
-          alert("x  win");
+          alert("X win");
         }
         if (arr[0][i] == 2 && arr[1][i] == 2 && arr[2][i] == 2) {
-          alert("o  win");
+          alert("O  win");
+        }
+        if (arr[0][i] == 1 && arr[1][i] == 1 && arr[2][i] == 1) {
+          alert("X  win");
         }
       }
       if (arr[0][0] == 1 && arr[1][1] == 1 && arr[2][2] == 1) {
-        alert("x  win");
+        alert("X  win");
       }
       if (arr[0][0] == 2 && arr[1][1] == 2 && arr[2][2] == 2) {
-        alert("o  win");
-      }
-      if (arr[2][0] == 2 && arr[1][1] == 2 && arr[0][2] == 2) {
-        alert("o  win");
+        alert("O  win");
       }
       if (arr[2][0] == 1 && arr[1][1] == 1 && arr[0][2] == 1) {
-        alert("x  win");
+        alert("X  win");
+      }
+      if (arr[2][0] == 2 && arr[1][1] == 2 && arr[0][2] == 2) {
+        alert("O  win");
       }
     }
     initTable();
