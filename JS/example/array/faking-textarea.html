@@ -9,32 +9,24 @@
 
 <body>
     <h3>Type anthing slowly</h3>
-    <textarea name="" id="doc" cols="30" rows="10"></textarea>
+    <textarea name="" id="text-area" cols="30" rows="10"></textarea>
 
     <script>
-        //  là một chuỗi miêu tả một bộ các chuỗi khác
-        let originText =
-            `Biểu thức chính quy là một chuỗi miêu tả một bộ các chuỗi khác, theo những quy tắc cú pháp nhất định. Biểu thức chính quy thường được dùng trong các trình biên tập văn bản và các tiện ích tìm kiếm và xử lý văn bản dựa trên các mẫu được quy định`;
-        let parting = originText.split("");
-        let doc = document.getElementById("doc");
-        doc.addEventListener("input", action);
+        const textArea = document.getElementById("text-area");
+        let originText = "Biểu thức";
         let count = 0;
-        let outputArr = [];
-        let outputStr = "";
-
         function action() {
             count++;
-            doc.value = ""
             if (count > originText.length) {
                 count = 0;
-                outputArr = [];
-                outputStr = "";
             }
+            let outputArr = [];
             for (let i = 0; i < count; i++) {
-                outputArr[i] = parting[i];
+                outputArr[i] = originText[i];
             }
-            doc.value = outputArr.join("");
+            textArea.value = outputArr.join("");
         }
+        textArea.addEventListener("input", action);
     </script>
 </body>
 
