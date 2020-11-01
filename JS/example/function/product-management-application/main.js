@@ -8,18 +8,18 @@ let productList = ["Vsmart Live", "Samsung A50"];
 
 let editAvailable = true;
 
-//
+//khởi tạo list sản phẩm
 function init() {
     let tableBody = document.getElementById("table-body");
     let insertHTML = "";
     for (let i = 0; i < productList.length; i++) {
-        insertHTML += `<tr>`
+        insertHTML += "<tr>";
         insertHTML += `<td><input id="no-${i+1}" disabled type="text" value="${productList[i]}"></td> `;
-        insertHTML += `<td><input id="edit-input" onclick="edit(event, this)" class="btn btn-primary mb-2" type="button" value="Edit"></td>`;
-        insertHTML += `<td><input id="del-input" class="btn btn-primary mb-2" type="button" value="Del"></td>`;
+        insertHTML += `<td><input id="edit-input" onclick="edit(event, this)" class="btn btn-warning mb-2" type="button" value="Edit"></td>`;
+        insertHTML += `<td><input id="del-input" onclick="del(event)" class="btn btn-danger mb-2" type="button" value="Del"></td>`;
         insertHTML += "</tr>"
     }
-
+    // console.log(productList);
     tableBody.innerHTML = insertHTML;
     displayProductNumber();
 }
@@ -37,23 +37,29 @@ function displayProductNumber() {
     productNumber.innerHTML = "Số lượng sản phẩm: " + productList.length;
 }
 
+//sửa sản phẩm
 function edit(e, t) {
+    let path = e.path[2].getElementsByTagName("input")[0];
     if (editAvailable) {
-        e.path[2].getElementsByTagName("input")[0].disabled = false;
+        path.disabled = false;
         t.value = "Save";
+        t.classList.remove("btn-warning");
+        t.classList.add("btn-success");
         editAvailable = false;
     } else {
-        e.path[2].getElementsByTagName("input")[0].disabled = true;
-
-        productList[parseInt(e.path[2].getElementsByTagName("input")[0].id.split("-")[1] - 1)] = e.path[2].getElementsByTagName("input")[0].value;
+        path.disabled = true;
+        productList[parseInt(path.id.split("-")[1] - 1)] = path.value;
         t.value = "Edit";
-        // console.log(productList);
         editAvailable = true;
     }
 }
 
-function del() {
-
+//xóa sản phẩm
+function del(e) {
+    let path = e.path[2].getElementsByTagName("input")[0];
+    e.path[2].remove();
+    productList.splice(parseInt(path.id.split("-")[1] - 1), 1);
+    init();
 }
 
 init();
