@@ -25,7 +25,7 @@ function add() {
     addInput.value = "";
     // hiển thị số lượng sản phẩm
     proNum += 1;
-    productNumber.innerHTML = proNum;
+    productNumber.innerHTML = "Product number: " + proNum;
 }
 
 //sửa sản phẩm
@@ -62,7 +62,7 @@ function del(e) {
     tableBody.removeChild(row);
     // hiển thị số lượng sản phẩm
     proNum -= 1;
-    productNumber.innerHTML = proNum;
+    productNumber.innerHTML = "Product number: " + proNum;
 }
 
 function clickButtonHandler(e) {
