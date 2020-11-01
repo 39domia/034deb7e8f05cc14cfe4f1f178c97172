@@ -50,8 +50,11 @@ function edit(e, t) {
         path.disabled = true;
         productList[parseInt(path.id.split("-")[1] - 1)] = path.value;
         t.value = "Edit";
+        t.classList.add("btn-warning");
+        t.classList.remove("btn-success");
         editAvailable = true;
     }
+
 }
 
 //xóa sản phẩm
