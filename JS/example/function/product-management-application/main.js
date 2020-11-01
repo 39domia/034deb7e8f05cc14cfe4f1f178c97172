@@ -1,68 +1,78 @@
 //declare HTML elements
 let addInput = document.getElementById("input-new-product");
 let addBtn = document.getElementById("add-btn");
+let tableBody = document.getElementById("table-body");
+let productNumber = document.getElementById("product-number");
 
 addBtn.addEventListener("click", add);
 
-let productList = ["Vsmart Live", "Samsung A50"];
+proNum = 0;
 
-let editAvailable = true;
-
-//khởi tạo list sản phẩm
-function init() {
-    let tableBody = document.getElementById("table-body");
+function createItem(name) {
     let insertHTML = "";
-    for (let i = 0; i < productList.length; i++) {
-        insertHTML += "<tr>";
-        insertHTML += `<td><input id="no-${i+1}" disabled type="text" value="${productList[i]}"></td> `;
-        insertHTML += `<td><input id="edit-input" onclick="edit(event, this)" class="btn btn-warning mb-2" type="button" value="Edit"></td>`;
-        insertHTML += `<td><input id="del-input" onclick="del(event)" class="btn btn-danger mb-2" type="button" value="Del"></td>`;
-        insertHTML += "</tr>"
-    }
-    // console.log(productList);
-    tableBody.innerHTML = insertHTML;
-    displayProductNumber();
+    insertHTML += `<td><input disabled type="text" value="${name}"></td> `;
+    insertHTML += `<td><input id="edit-input" class="btn btn-warning mb-2" type="button" value="Edit"></td>`;
+    insertHTML += `<td><input id="del-input" class="btn btn-danger mb-2" type="button" value="Del"></td>`;
+    let newRow = document.createElement("tr");
+    newRow.innerHTML = insertHTML;
+    return newRow;
 }
 
 // khi ấn nút add thì thêm giá trị từ input trong HTML để đưa vào mảng productList
 function add() {
-    productList.push(addInput.value);
-    init();
+    const newRow = createItem(addInput.value);
+    tableBody.appendChild(newRow);
     addInput.value = "";
-}
-
-//hiển thị số lượng sản phẩm
-function displayProductNumber() {
-    let productNumber = document.getElementById("product-number");
-    productNumber.innerHTML = "Số lượng sản phẩm: " + productList.length;
+    // hiển thị số lượng sản phẩm
+    proNum += 1;
+    productNumber.innerHTML = proNum;
 }
 
 //sửa sản phẩm
-function edit(e, t) {
-    let path = e.path[2].getElementsByTagName("input")[0];
-    if (editAvailable) {
-        path.disabled = false;
-        t.value = "Save";
-        t.classList.remove("btn-warning");
-        t.classList.add("btn-success");
-        editAvailable = false;
+function edit({
+    target,
+    path
+}) {
+    let inputElement = path[2].getElementsByTagName("input")[0];
+    const isEdit = target.classList.contains("btn-warning");
+    if (isEdit) {
+        changeButtonToSave(inputElement, target)
     } else {
-        path.disabled = true;
-        productList[parseInt(path.id.split("-")[1] - 1)] = path.value;
-        t.value = "Edit";
-        t.classList.add("btn-warning");
-        t.classList.remove("btn-success");
-        editAvailable = true;
+        changeButtonToEdit(inputElement, target)
     }
+}
 
+function changeButtonToSave(path, t) {
+    path.disabled = false;
+    t.value = "Save";
+    t.classList.remove("btn-warning");
+    t.classList.add("btn-success");
+}
+
+function changeButtonToEdit(path, t) {
+    path.disabled = true;
+    t.value = "Edit";
+    t.classList.add("btn-warning");
+    t.classList.remove("btn-success");
 }
 
 //xóa sản phẩm
 function del(e) {
-    let path = e.path[2].getElementsByTagName("input")[0];
-    e.path[2].remove();
-    productList.splice(parseInt(path.id.split("-")[1] - 1), 1);
-    init();
+    const row = (e.target.parentNode.parentNode);
+    tableBody.removeChild(row);
+    // hiển thị số lượng sản phẩm
+    proNum -= 1;
+    productNumber.innerHTML = proNum;
 }
 
-init();
+function clickButtonHandler(e) {
+    const classList = e.target.classList;
+    if (!classList.contains("btn")) return;
+    if (classList.contains("btn-danger")) {
+        del(e)
+    } else {
+        edit(e)
+    }
+}
+
+tableBody.addEventListener("click", clickButtonHandler);
