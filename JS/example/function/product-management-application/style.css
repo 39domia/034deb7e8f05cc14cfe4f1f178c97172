@@ -1,3 +1,6 @@
 h4 {
     padding: 20px 0;
 }
+td>input:disabled{
+    border: none;
+}
