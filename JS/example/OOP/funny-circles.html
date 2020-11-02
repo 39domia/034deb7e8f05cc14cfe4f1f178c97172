@@ -68,7 +68,13 @@
             ctx.fill();
         }
 
-        createRandomPositionCircle();
+        function createMultipleCircle() {
+            for (var i = 0; i < 30; i++) {
+                createRandomPositionCircle();
+            }
+        }
+
+        createMultipleCircle();
         // createRandomRadiusColorCircle();
         // createRandomRadiusCircle();
         // createCircle();
