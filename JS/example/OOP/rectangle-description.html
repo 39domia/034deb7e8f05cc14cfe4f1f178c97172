@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+
+
+<body>
+
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+
+    <script>
+        function Rectangle(width, height) {
+            this.width = width;
+            this.height = height;
+            this.area = function () {
+                return this.width * this.height;
+            }
+            this.perimeter = function () {
+                return (this.width + this.height) * 2;
+            }
+            this.draw = function () {
+                var ctx = document.getElementById("myCanvas").getContext("2d");
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(0, 0, width, height);
+            }
+        }
+        let rec = new Rectangle(100, 75);
+        rec.draw();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô tả Temperature</title>
+</head>
+
+
+<body>
+
+
+    <script>
+        function Temperature(degree) {
+            this.degree = degree;
+            this.convertCtoF = function () {
+                return (9 * this.degree) / 5 + 32;
+            }
+            this.convertCtoKelvin = function () {
+                return this.degree + 273.15;
+            }
+        }
+        let temp = new Temperature(25);
+        console.log(temp.convertCtoF());
+    </script>
+</body>
+
+</html>
