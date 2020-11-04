@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô tả điện thoại</title>
+</head>
+
+<body>
+
+    <script>
+        function Mobile(name) {
+            this.name = name;
+            this.isOn = true;
+            this.battery = 50;
+            this.draft = "";
+            this.inbox = [];
+            this.sent = [];
+            this.checkOnOff = function () {
+                this.battery--;
+                return this.isOn;
+            }
+            this.turnOn = function () {
+                this.battery--;
+                if (this.isOn)
+                    return
+                else
+                    return this.isOn = true
+            }
+            this.turnOff = function () {
+                this.battery--;
+                if (!this.isOn)
+                    return
+                else
+                    return this.isOn = false
+            }
+            this.charge = function () {
+                return this.battery += 20;
+            }
+            this.newMessenger = function (mess) {
+                this.battery--;
+                return this.draft = mess;
+            }
+            // Có chức năng nhận tin nhắn từ một chiếc mobile khác.
+            this.receiveMessenger = function (draft) {
+                this.inbox.push(draft);
+            }
+            // Có chức năng gửi tin nhắn tới một chiếc mobile khác.
+
+            this.sendMessenger = function (mess, mobile) {
+                mobile.receiveMessenger(mess);
+            }
+            this.displayInbox = function () {
+                this.battery--;
+                return this.inbox;
+            }
+            this.displaySent = function () {
+                this.battery--;
+                return this.sent;
+            }
+        }
+        let iphone = new Mobile("iPhone");
+        let android = new Mobile("Android");
+        iphone.sendMessenger("hello from Iphone to android", android);
+        android.sendMessenger("hello from android to android", iphone);
+        console.log(iphone, android);
+    </script>
+</body>
+
+</html>
