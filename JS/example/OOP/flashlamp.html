@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flashlamp</title>
+</head>
+
+<body>
+    <script>
+        let Battery = function () {
+            this.energy;
+            this.setEnergy = function (energy) {
+                this.energy = energy;
+            }
+            this.getEnergy = function () {
+                return this.energy;
+            }
+            this.decreaseEnergy = function () {
+                if (this.energy > 0) {
+                    this.energy--;
+                }
+            }
+        }
+
+
+        //Flashlamp
+        let Flashlamp = function () {
+            this.status = false;
+            this.battery;
+            this.setBattery = function (battery) {
+                this.battery = battery;
+
+            };
+            this.getBatteryInfo = function () {
+                return this.battery.getEnergy();
+            };
+            this.light = function () {
+                if (this.status) {
+                    console.log("Lighting");
+                    this.battery.decreaseEnergy();
+                } else {
+                    console.log("Not lighting");
+
+                }
+            };
+            this.turnOn = function () {
+                this.status = true;
+            };
+            this.turnOff = function () {
+                this.status = false;
+            };
+        }
+        let battery = new Battery();
+        battery.setEnergy(10);
+        let flashlamp = new Flashlamp();
+        flashlamp.setBattery(battery);
+        document.write("Battery info:" + flashlamp.getBatteryInfo() + "<br />");
+        flashlamp.light();
+
+        document.write("Turn on<br />")
+        flashlamp.turnOn();
+        flashlamp.light();
+        document.write("Battery info:" + flashlamp.getBatteryInfo() + "<br />");
+
+        document.write("Turn off<br />")
+        flashlamp.turnOff();
+        flashlamp.light();
+    </script>
+</body>
+
+</html>
