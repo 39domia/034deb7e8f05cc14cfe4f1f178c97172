@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="500"
+      height="400"
+      style="border: 1px solid #000000"
+    ></canvas>
+
+    <script>
+      let canvas = document.getElementById("myCanvas");
+      function Circle(x, y, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.render = function (canvas) {
+          const ctx = canvas.getContext("2d");
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+          ctx.strokeStyle = this.color;
+
+          ctx.stroke();
+        };
+      }
+      let circle = new Circle(40, 50, 30, "#f30");
+      circle.render(canvas);
+    </script>
+  </body>
+</html>

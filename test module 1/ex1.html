@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function generateArray(size) {
+        let arr = [];
+        for (let i = 0; i < size; i++) {
+          arr.push(Math.floor(Math.random() * (90 - 10)) + 10);
+        }
+        return arr;
+      }
+      function printArray(arr) {
+        return arr.join("-");
+      }
+
+      function find(value, arr) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr.indexOf(value) !== -1) {
+            return arr.indexOf(value);
+          } else return -1;
+        }
+      }
+      // console.log(find(3, [1, 2, 3]))
+      function removeAll(value, arr) {
+        for (let i = 0; i < arr.length; i++) {
+          if (find(value, arr) !== -1) {
+            arr.splice(find(value, arr), 1);
+          }
+        }
+        return arr;
+      }
+
+      function main() {
+        let size;
+        do {
+          size = Number(prompt("Insert size"));
+        } while (size < 1 || !Number.isInteger(size));
+        let arr = generateArray(size);
+        alert(printArray(arr));
+        let value;
+        do {
+          value = Number(prompt("Insert value"));
+        } while (value < 1 || !Number.isInteger(value));
+        removeAll(value, arr);
+        alert(arr);
+      }
+      main();
+    </script>
+  </body>
+</html>

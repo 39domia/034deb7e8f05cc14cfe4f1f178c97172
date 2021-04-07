@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function capitalize(str) {
+        let temp = str.trim().toLowerCase().split("");
+        for (let i = 0; i < temp.length; i++) {
+          if (temp[i] == " " && temp[i + 1] == " ") {
+            temp.splice(i, 1);
+            i--;
+          }
+        }
+        temp[0] = temp[0].toUpperCase();
+        for (let i = 0; i < temp.length; i++) {
+          if (temp[i] == " ") {
+            temp[i + 1] = temp[i + 1].toUpperCase();
+          }
+        }
+        return temp.join("");
+      }
+      console.log(capitalize("   asdfadsf  DFDDFf   FDDF  "));
+    </script>
+  </body>
+</html>
